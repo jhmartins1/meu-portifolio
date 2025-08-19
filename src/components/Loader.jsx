@@ -2,9 +2,13 @@ import { Html, useProgress } from "@react-three/drei";
 
 const CanvasLoader = () => {
   const { progress } = useProgress();
+
+  // Garante que progress sempre é número válido
+  const safeProgress = isNaN(progress) ? 0 : progress;
+
   return (
     <Html
-      as='div'
+      as="div"
       center
       style={{
         display: "flex",
@@ -13,7 +17,7 @@ const CanvasLoader = () => {
         flexDirection: "column",
       }}
     >
-      <span className='canvas-loader'></span>
+      <span className="canvas-loader" />
       <p
         style={{
           fontSize: 14,
@@ -22,7 +26,7 @@ const CanvasLoader = () => {
           marginTop: 40,
         }}
       >
-        {progress.toFixed(2)}%
+        {safeProgress.toFixed(2)}%
       </p>
     </Html>
   );
