@@ -37,6 +37,11 @@ useGLTF.preload("./desktop_pc/scene.gltf");
 const ComputersCanvas = () => {
   const isMobile = useIsMobile();
 
+  // Retorna null para não renderizar o componente pesado em dispositivos móveis
+  if (isMobile) {
+    return null;
+  }
+
   return (
     <Canvas
       frameloop="demand"

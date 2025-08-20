@@ -12,6 +12,7 @@ const Stars = ({ isMobile, ...props }) => {
   );
 
   useFrame((state, delta) => {
+    // A rotação só é aplicada se não for um dispositivo mobile
     if (!isMobile && ref.current) {
       ref.current.rotation.x -= delta / 10;
       ref.current.rotation.y -= delta / 15;

@@ -17,6 +17,11 @@ useGLTF.preload("./planet/scene.gltf");
 const EarthCanvas = () => {
   const isMobile = useIsMobile();
 
+  // Retorna null para não renderizar o componente pesado em dispositivos móveis
+  if (isMobile) {
+    return null;
+  }
+
   return (
     <Canvas
       shadows
